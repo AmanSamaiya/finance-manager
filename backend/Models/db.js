@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const uri = "mongodb+srv://amansamaiya90:anushka@cluster0.vohgonv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = "mongodb+srv://amansamaiya90:anushka@cluster0.vohgonv.mongodb.net/authdatabase?retryWrites=true&w=majority&appName=Cluster0";
 
 async function run() {
 
