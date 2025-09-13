@@ -51,3 +51,7 @@ created a successful database connection to mongodb
 
 # fourth commit
 completed the AUTH backend application for signup signin and get user details using jwt token
+
+# fifth commit
+completed full backend functionality of adding deleting and listing all expenses and also
+full signup signin logout functionality
