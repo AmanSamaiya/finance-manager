@@ -25,12 +25,29 @@ const userSchema = new mongoose.Schema(
       select: false,
       required: [true, "password is required"],
     },
+       expenses: [
+        {
+            text: {
+                type: String,
+                required: true
+            },
+            amount: {
+                type: Number,
+                required: true
+            },
+            createdAt: {
+                type: Date,
+                default: Date.now
+            }
+        }
+    ],
     forgotPasswordToken: {
       type: String,
     },
     forgotPasswordExpiryDate: {
       type: Date,
     },
+   
   },
   {
     timestamps: true,
@@ -49,4 +66,6 @@ userSchema.methods = {
   },
 };
 
-module.exports = mongoose.model("User", userSchema);
+
+
+module.exports = mongoose.models.User || mongoose.model("User", userSchema);

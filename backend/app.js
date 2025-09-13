@@ -4,6 +4,8 @@ const userRoutes = require("./Routes/userRoutes.js");
 const connectToDb = require("./config/db.js");
 const express = require("express");
 const cookieParser = require("cookie-parser");
+const ExpenseRouter = require('./Routes/ExpenseRouter.js');
+const authenticateUser = require('./middlewares/authenticateUser.js');
 
 const app = express();
 
@@ -27,5 +29,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/", userRoutes);
+app.use("/expenses", authenticateUser, ExpenseRouter)
+
 
 module.exports = app;

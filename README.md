@@ -49,3 +49,5 @@ installed required npm dependencies and created index.js file to start the backe
 # third commit
 created a successful database connection to mongodb
 
+# fourth commit
+completed the AUTH backend application for signup signin and get user details using jwt token
