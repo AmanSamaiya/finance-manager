@@ -23,7 +23,7 @@ function Home() {
         localStorage.removeItem('loggedInUser');
         handleSuccess('User Loggedout');
         setTimeout(() => {
-            navigate('/login');
+            navigate('/signin');
         }, 1000)
     }
     useEffect(() => {
@@ -48,7 +48,7 @@ function Home() {
             const response = await fetch(url, headers);
             if (response.status === 403) {
                 localStorage.removeItem('token');
-                navigate('/login');
+                navigate('/signin');
                 return
             }
             const result = await response.json();
@@ -66,12 +66,13 @@ function Home() {
             const headers = {
                 headers: {
                     'Authorization': localStorage.getItem('token')
+                    
                 }
             }
             const response = await fetch(url, headers);
             if (response.status === 403) {
                 localStorage.removeItem('token');
-                navigate('/login');
+                navigate('/signin');
                 return
             }
             const result = await response.json();
@@ -98,7 +99,7 @@ function Home() {
             const response = await fetch(url, headers);
             if (response.status === 403) {
                 localStorage.removeItem('token');
-                navigate('/login');
+                navigate('/signin');
                 return
             }
             const result = await response.json();

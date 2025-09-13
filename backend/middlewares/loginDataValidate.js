@@ -2,14 +2,14 @@ const bcrypt = require("bcrypt");
 const User = require("../models/userModels.js");
 
 const loginMiddleware = async (req, res, next) => {
-  const { username, password } = req.body;
+  const { name, password } = req.body;
 
   try {
-    if (!username || !password) {
+    if (!name || !password) {
       throw new Error("All fields are required");
     }
 
-    const user = await User.find({ username }).select("+password");
+    const user = await User.find({ name }).select("+password");
 
     if (!user) {
       throw new Error("User not found");

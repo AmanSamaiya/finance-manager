@@ -6,26 +6,30 @@ import { APIUrl, handleError, handleSuccess } from '../utils';
 function Signin() {
 
     const [loginInfo, setLoginInfo] = useState({
-        username: '',
-        password: ''
+        name: '',
+        password: '' ,
     })
 
     const navigate = useNavigate();
 
     const handleChange = (e) => {
+        e.preventDefault();
         const { name, value } = e.target;
         console.log(name, value);
         const copyLoginInfo = { ...loginInfo };
         copyLoginInfo[name] = value;
         setLoginInfo(copyLoginInfo);
     }
-
+      
+      
     const handleLogin = async (e) => {
         e.preventDefault();
-        const { username, password } = loginInfo;
-        if (!username || !password) {
-            return handleError('email and password are required')
+        const { name, password } = loginInfo;
+        
+        if (!name || !password) {
+            return handleError('name and password are required')
         }
+
         try {
             const url = `${APIUrl}/signin`;
             const response = await fetch(url, {
@@ -35,6 +39,7 @@ function Signin() {
                 },
                 body: JSON.stringify(loginInfo)
             });
+            
             
             const result = await response.json();
             const { success, message, jwtToken, name, error } = result;
@@ -62,13 +67,13 @@ function Signin() {
             <h1>Login</h1>
             <form onSubmit={handleLogin}>
                 <div>
-                    <label htmlFor='username'>Username</label>
+                    <label htmlFor='name'>name</label>
                     <input
                         onChange={handleChange}
-                        type='username'
-                        name='username'
-                        placeholder='Enter your username...'
-                        value={loginInfo.email}
+                        type='name'
+                        name='name'
+                        placeholder='Enter your name...'
+                        value={loginInfo.name}
                     />
                 </div>
                 <div>
