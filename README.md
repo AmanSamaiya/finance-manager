@@ -58,3 +58,6 @@ full signup signin logout functionality
 
 # sixth commit
 added complete signup login and home pages
+
+# seventh commit
+complted all the code flows for expenses 
