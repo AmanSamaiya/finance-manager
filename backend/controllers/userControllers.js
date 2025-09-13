@@ -5,7 +5,7 @@ const emailValidator = require("email-validator");
 const saltRounds = 10;
 
 exports.signup = async (req, res) => {
-  const { username, email, password } = req.user;
+  const { name, email, password } = req.user;
 
   try {
     var validateEmail = emailValidator.validate(email);
@@ -27,7 +27,7 @@ exports.signup = async (req, res) => {
     var hashedPassword = await bcrypt.hash(password, saltRounds);
 
     const user = await User.create({
-      username,
+      name,
       email,
       password: hashedPassword,
     });

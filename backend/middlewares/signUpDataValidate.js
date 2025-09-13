@@ -1,11 +1,11 @@
 const signupMiddleware = async (req, res, next) => {
-  const { username, email, password } = req.body;
+  const { name, email, password } = req.body;
 
   try {
-    if (  !username  || !email || !password) {
+    if (  !name  || !email || !password) {
       res.status(400).json({msg:"All fields are required"})
     } else {
-      req.user = { username, email, password };
+      req.user = { name, email, password };
       next();
     }
   } catch (error) {

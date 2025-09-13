@@ -55,3 +55,6 @@ completed the AUTH backend application for signup signin and get user details us
 # fifth commit
 completed full backend functionality of adding deleting and listing all expenses and also
 full signup signin logout functionality
+
+# sixth commit
+added complete signup login and home pages
